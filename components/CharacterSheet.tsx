@@ -5,14 +5,10 @@ import { Weapons } from './Weapons';
 import { Character, EmptyCharacter } from '../data-models';
 import { rollDice } from '../utils/rollDice';
 import { CharacterInfo } from './CharacterInfo';
+import { Traits } from './Traits';
 
 const CharacterSheet: React.FC = () => {
   const [character, setCharacter] = useState<Character>(EmptyCharacter);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setCharacter((prev) => ({ ...prev, [name]: value }));
-  };
 
   const handleRoll = (modifier: number) => {
     const roll = rollDice(20) + modifier;
@@ -71,6 +67,8 @@ const CharacterSheet: React.FC = () => {
       >
         Add Proficiency
       </button>
+
+      <Traits character={character} />
     </div>
   );
 };

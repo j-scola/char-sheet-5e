@@ -15,7 +15,7 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
       abilities: { ...prev.abilities, editable: !prev.abilities.editable },
     }));
   };
-
+  console.log(abilities);
   return (
     <div>
       <h2>Abilities</h2>
@@ -29,7 +29,7 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
                   <input
                     type="number"
                     name={ability}
-                    value={score}
+                    value={score.base}
                     onChange={(e) =>
                       setCharacter((prev) => ({
                         ...prev,
@@ -41,7 +41,31 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
                     }
                   />
                 </label>
-                <div>Modifier: {Math.floor((score - 10) / 2)}</div>
+                <label>
+                  Modifiers:
+                  <input
+                    type="text"
+                    name={ability}
+                    value={score.modifiers.map((mod) => mod.note).join(',')}
+                    onChange={(e) =>
+                      setCharacter((prev) => ({
+                        ...prev,
+                        abilities: {
+                          ...prev.abilities,
+                          [ability]: {
+                            ...prev.abilities[ability],
+                            modifiers: e.target.value
+                              .split(',')
+                              .map((note) => ({
+                                note,
+                                val: 0,
+                              })),
+                          },
+                        },
+                      }))
+                    }
+                  />
+                </label>
               </div>
             ) : (
               <div key={ability}></div>
@@ -56,9 +80,11 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
             <div key={ability} className="flex">
               <label>
                 {ability.charAt(0).toUpperCase() + ability.slice(1)}:
-                <span>{score}</span>
+                <span>
+                  {score.base +
+                    score.modifiers.reduce((prev, curr) => prev + curr)}
+                </span>
               </label>
-              <div>Modifier: {Math.floor((score - 10) / 2)}</div>
             </div>
           ))}
           <button onClick={toggleEditable}>Edit</button>

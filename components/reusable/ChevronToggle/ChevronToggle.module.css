@@ -1,0 +1,27 @@
+/* ChevronToggle.module.css */
+
+.chevronToggleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chevronButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chevronIcon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease-in-out;
+  transform: rotate(0deg); /* Initial state: pointing right */
+}
+
+.rotate90 {
+  transform: rotate(90deg); /* Rotates 90 degrees clockwise */
+}

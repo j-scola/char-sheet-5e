@@ -3,8 +3,8 @@ import CharacterSheet from '../components/CharacterSheet';
 
 export default function Home() {
   return (
-    <div>
-      <h1>D&D 5e Character Sheet Tracker</h1>
+    <div className="m-4 max-w-6xl">
+      <h1 className="text-xl">D&D 5e Character Sheet</h1>
       <CharacterSheet />
     </div>
   );

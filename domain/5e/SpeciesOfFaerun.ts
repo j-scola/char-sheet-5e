@@ -1,6 +1,6 @@
-import { Race } from '../Race';
+import { Species } from '../types/Species';
 
-export const Races: Race[] = [
+export const SpeciesOfFaerun: Species[] = [
   {
     name: 'Dwarf',
     subRaces: [

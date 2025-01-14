@@ -1,9 +1,9 @@
-export const EmptyRace: Race = {
+export const EmptySpecies: Species = {
   name: '',
   subRaces: [],
 };
 
-export const EmptySubRace: SubRace = {
+export const EmptySubSpecies: SubSpecies = {
   name: '',
   abilityModifiers: {},
   size: '',
@@ -12,12 +12,12 @@ export const EmptySubRace: SubRace = {
   traits: [],
 };
 
-export interface Race {
+export interface Species {
   name: string;
-  subRaces: SubRace[];
+  subRaces: SubSpecies[];
 }
 
-export interface SubRace {
+export interface SubSpecies {
   name: string;
   abilityModifiers: {
     strength?: number;

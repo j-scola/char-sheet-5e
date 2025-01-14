@@ -1,5 +1,5 @@
 import React from 'react';
-import { Weapon, Character } from '../data-models';
+import { Weapon, Character } from '../domain';
 
 interface PropTypes {
   weapons: Weapon[];

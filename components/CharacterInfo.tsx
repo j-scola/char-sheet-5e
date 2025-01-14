@@ -1,7 +1,6 @@
 import React from 'react';
-import { Character } from '../data-models';
-import { Races } from '../data-models/5e/Races';
-import { EmptySubRace } from '../data-models/Race';
+import { Character, EmptySubSpecies } from '../domain';
+import { SpeciesOfFaerun } from '../domain/5e';
 
 const classOptions = [
   'Barbarian',
@@ -27,11 +26,12 @@ export const CharacterInfo: React.FC<CharacterInfoProps> = ({
   setCharacter,
 }) => {
   return (
-    <div>
-      <h2>Character Information</h2>
-      <label>
-        Name:
+    <div className="my-4">
+      <h2 className="text-lg my-2">Character Information</h2>
+      <label className="mr-2">
+        <span className="mr-1">Name:</span>
         <input
+          className="outline-black outline outline-1 rounded focus:outline-none focus:ring focus:ring-violet-300"
           type="text"
           name="name"
           value={character.name}
@@ -44,54 +44,59 @@ export const CharacterInfo: React.FC<CharacterInfoProps> = ({
         />
       </label>
 
-      <label>
-        Race:
+      <label className="mr-2">
+        <span className="mr-1">Species:</span>
         <select
-          name="race"
-          value={character.race.name}
+          className="outline-black outline outline-1 rounded focus:outline-none focus:ring focus:ring-violet-300"
+          name="species"
+          value={character.species.name}
           onChange={(e) => {
             setCharacter((prev) => ({
               ...prev,
-              race: Races.find((value) => value.name === e.target.value),
-              subrace: EmptySubRace,
+              species: SpeciesOfFaerun.find(
+                (value) => value.name === e.target.value
+              ),
+              subSpecies: EmptySubSpecies,
             }));
           }}
         >
-          <option value="">Select Race</option>
-          {Races.map((race) => (
-            <option key={race.name} value={race.name}>
-              {race.name}
+          <option value="">Select Species</option>
+          {SpeciesOfFaerun.map((species) => (
+            <option key={species.name} value={species.name}>
+              {species.name}
             </option>
           ))}
         </select>
       </label>
 
-      <label>
-        Sub-race:
+      <label className="mr-2">
+        <span className="mr-1">Sub-Species:</span>
         <select
-          name="subrace"
-          value={character.subRace.name}
+          className="outline-black outline outline-1 rounded focus:outline-none focus:ring focus:ring-violet-300"
+          name="subSpecies"
+          value={character.subSpecies.name}
           onChange={(e) => {
             setCharacter((prev) => ({
               ...prev,
-              subRace: character.race.subRaces.find(
+              subSpecies: character.species.subRaces.find(
                 (value) => value.name === e.target.value
               ),
             }));
           }}
         >
-          <option value="">Select Sub-race</option>
-          {character.race.subRaces.map((race) => (
-            <option key={race.name} value={race.name}>
-              {race.name}
+          <option value="">Select Sub-Species</option>
+          {character.species.subRaces.map((species) => (
+            <option key={species.name} value={species.name}>
+              {species.name}
             </option>
           ))}
         </select>
       </label>
 
-      <label>
-        Class:
+      <label className="mr-2">
+        <span className="mr-1">Class:</span>
         <select
+          className="outline-black outline outline-1 rounded focus:outline-none focus:ring focus:ring-violet-300"
           name="class"
           value={character.class}
           onChange={(e) => {

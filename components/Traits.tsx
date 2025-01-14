@@ -1,5 +1,5 @@
 import React from 'react';
-import { Character } from '../data-models';
+import { Character } from '../domain';
 
 interface TraitsProps {
   character: Character;
@@ -10,7 +10,7 @@ export const Traits = ({ character }) => {
     <div>
       <h2>Traits</h2>
       <ul>
-        {character.subRace.traits.map((trait, index) => (
+        {character.subSpecies.traits.map((trait, index) => (
           <li key={index}>{trait}</li>
         ))}
       </ul>

@@ -3,7 +3,7 @@ import { Species } from '../types/Species';
 export const SpeciesOfFaerun: Species[] = [
   {
     name: 'Dwarf',
-    subRaces: [
+    subSpecies: [
       {
         name: 'Hill',
         abilityModifiers: {
@@ -43,7 +43,7 @@ export const SpeciesOfFaerun: Species[] = [
   },
   {
     name: 'Elf',
-    subRaces: [
+    subSpecies: [
       {
         name: 'High',
         abilityModifiers: {
@@ -99,7 +99,7 @@ export const SpeciesOfFaerun: Species[] = [
   },
   {
     name: 'Halfling',
-    subRaces: [
+    subSpecies: [
       {
         name: 'Lightfoot',
         abilityModifiers: {
@@ -126,7 +126,7 @@ export const SpeciesOfFaerun: Species[] = [
   },
   {
     name: 'Human',
-    subRaces: [
+    subSpecies: [
       {
         name: 'Standard',
         abilityModifiers: {
@@ -161,7 +161,7 @@ export const SpeciesOfFaerun: Species[] = [
   },
   {
     name: 'Dragonborn',
-    subRaces: [
+    subSpecies: [
       {
         name: 'Standard',
         abilityModifiers: {
@@ -177,7 +177,7 @@ export const SpeciesOfFaerun: Species[] = [
   },
   {
     name: 'Gnome',
-    subRaces: [
+    subSpecies: [
       {
         name: 'Forest',
         abilityModifiers: {
@@ -204,7 +204,7 @@ export const SpeciesOfFaerun: Species[] = [
   },
   {
     name: 'Half-Orc',
-    subRaces: [
+    subSpecies: [
       {
         name: 'Standard',
         abilityModifiers: {
@@ -225,7 +225,7 @@ export const SpeciesOfFaerun: Species[] = [
   },
   {
     name: 'Tiefling',
-    subRaces: [
+    subSpecies: [
       {
         name: 'Standard',
         abilityModifiers: {
@@ -257,7 +257,7 @@ export const SpeciesOfFaerun: Species[] = [
   },
   {
     name: 'Aasimar',
-    subRaces: [
+    subSpecies: [
       {
         name: 'Protector',
         abilityModifiers: {
@@ -313,7 +313,7 @@ export const SpeciesOfFaerun: Species[] = [
   },
   {
     name: 'Goliath',
-    subRaces: [
+    subSpecies: [
       {
         name: 'Standard',
         abilityModifiers: {

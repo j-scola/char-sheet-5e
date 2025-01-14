@@ -1,10 +1,5 @@
 import { Abilities } from './Abilities';
-
-interface SkillProficiency {
-  skill: string;
-  proficiencyLevel: 0 | 1 | 2 | 3;
-  baseAbility: Abilities;
-}
+import { SkillProficiency } from '../types/SkillProficiency';
 
 export const SkillProficiencies: SkillProficiency[] = [
   {

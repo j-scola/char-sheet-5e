@@ -1,16 +1,18 @@
 import React from 'react';
-import { Character } from '../domain';
+import { Character, DndClass, Species, SubSpecies } from '../domain';
 
 interface TraitsProps {
-  character: Character;
+  dndClass: DndClass;
+  species: Species;
+  subSpecies: SubSpecies;
 }
 
-export const Traits = ({ character }) => {
+export const Traits = ({ dndClass, species, subSpecies }) => {
   return (
-    <div>
-      <h2>Traits</h2>
+    <div className="w-1/3 border-blue border-2 p-1 m-1">
+      <h2 className="text-xl">Traits</h2>
       <ul>
-        {character.subSpecies.traits.map((trait, index) => (
+        {subSpecies.traits.map((trait, index) => (
           <li key={index}>{trait}</li>
         ))}
       </ul>

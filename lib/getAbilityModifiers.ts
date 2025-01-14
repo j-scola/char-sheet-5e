@@ -1,5 +1,11 @@
-import { Character } from '../domain';
+import { DndAbilityScore, DndAbilityScores } from '../domain';
 
-export const getStrengthModifier = (character: Character) => {
-  return character.abilities.strength.base;
+export const getAbilityModifier = (ability: DndAbilityScore) => {
+  return Math.floor(
+    (ability.base +
+      ability.speciesAdjustment +
+      ability.situationalAdjustment -
+      10) /
+      2
+  );
 };

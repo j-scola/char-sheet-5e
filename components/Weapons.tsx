@@ -1,75 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Weapon, Character } from '../domain';
+import { LockEditButton } from './reusable/LockEditButton';
 
-interface PropTypes {
-  weapons: Weapon[];
-  handleRoll: (modifier: number) => void;
-  setCharacter: React.Dispatch<React.SetStateAction<Character>>;
-}
+interface PropTypes {}
 
-export const Weapons: React.FC<PropTypes> = ({
-  weapons,
-  handleRoll,
-  setCharacter,
-}) => {
-  const toggleEditable = (index: number) => {
-    setCharacter((prev) => ({
-      ...prev,
-      weapons: prev.weapons.map((w, i) =>
-        i === index ? { ...w, editable: !w.editable } : w
-      ),
-    }));
-  };
+export const Weapons: React.FC<PropTypes> = ({}) => {
+  const [editable, setEditable] = useState(false);
+  const [weapons, setWeapons] = useState<Weapon[]>([]);
 
   return (
-    <div>
-      <h2>Weapons</h2>
+    <div className="w-1/3 border-blue border-2 p-1 m-1">
+      <div className="flex w-full justify-between">
+        <h2 className="text-xl">Weapons</h2>
+        <LockEditButton editable={editable} setEditable={setEditable} />
+      </div>
       {weapons.map((weapon, index) =>
         weapon.editable ? (
           <div key={index}>
-            <input
-              type="text"
-              value={weapon.name}
-              onChange={(e) =>
-                setCharacter((prev) => ({
-                  ...prev,
-                  weapons: prev.weapons.map((w, i) =>
-                    i === index ? { ...w, name: e.target.value } : w
-                  ),
-                }))
-              }
-            />
-            <button
-              onClick={() => {
-                toggleEditable(index);
-              }}
-            >
-              Lock
-            </button>
+            <input type="text" value={weapon.name} onChange={(e) => {}} />
           </div>
         ) : (
           <div key={index}>
             <span>{weapon.name}:</span>
-            <button onClick={() => handleRoll(weapon.modifier)}>
-              Roll Attack
-            </button>
-            <button onClick={() => toggleEditable(index)}>Edit</button>
+            <button onClick={() => {}}>Roll Attack</button>
+            <button onClick={() => {}}>Edit</button>
           </div>
         )
       )}
-      <button
-        onClick={() =>
-          setCharacter((prev) => ({
-            ...prev,
-            weapons: [
-              ...prev.weapons,
-              { name: 'New Weapon', modifier: 0, editable: true },
-            ],
-          }))
-        }
-      >
-        Add Weapon
-      </button>
+      <button onClick={() => {}}>Add Weapon</button>
     </div>
   );
 };

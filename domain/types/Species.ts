@@ -1,6 +1,6 @@
 export const EmptySpecies: Species = {
   name: '',
-  subRaces: [],
+  subSpecies: [],
 };
 
 export const EmptySubSpecies: SubSpecies = {
@@ -14,7 +14,7 @@ export const EmptySubSpecies: SubSpecies = {
 
 export interface Species {
   name: string;
-  subRaces: SubSpecies[];
+  subSpecies: SubSpecies[];
 }
 
 export interface SubSpecies {

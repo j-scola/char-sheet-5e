@@ -1,26 +1,33 @@
 import React from 'react';
 import { DndAbilityScores, Character, Species } from '../domain';
+import { LockEditButton } from './reusable/LockEditButton';
 
 interface AbilityScoresProps {
   abilities: DndAbilityScores;
   species: Species;
-  setCharacter: React.Dispatch<React.SetStateAction<Character>>;
+  setAbilities: React.Dispatch<React.SetStateAction<DndAbilityScores>>;
 }
 export const AbilityScores: React.FC<AbilityScoresProps> = ({
   abilities,
   species,
-  setCharacter,
+  setAbilities,
 }) => {
   const toggleEditable = () => {
-    setCharacter((prev) => ({
+    setAbilities((prev) => ({
       ...prev,
-      abilities: { ...prev.abilities, editable: !prev.abilities.editable },
+      editable: !prev.editable,
     }));
   };
 
   return (
-    <div>
-      <h2>Abilities</h2>
+    <div className="w-1/3 border-blue border-2 p-1 m-1">
+      <div className="flex justify-between">
+        <h2 className="text-xl">Abilities</h2>
+        <LockEditButton
+          editable={abilities.editable}
+          setEditable={() => toggleEditable()}
+        />
+      </div>
       {abilities.editable ? (
         <div>
           {Object.entries(abilities).map(([ability, score]) => {
@@ -38,18 +45,13 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
                       name={ability}
                       value={score.base}
                       onChange={(e) =>
-                        setCharacter((prev) => {
-                          return {
-                            ...prev,
-                            abilities: {
-                              ...prev.abilities,
-                              [ability]: {
-                                ...prev.abilities[ability],
-                                base: parseInt(e.target.value, 10),
-                              },
-                            },
-                          };
-                        })
+                        setAbilities((prev) => ({
+                          ...prev,
+                          [ability]: {
+                            ...prev[ability],
+                            base: parseInt(e.target.value, 10),
+                          },
+                        }))
                       }
                     />
                   </label>
@@ -67,14 +69,11 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
                       name={ability}
                       value={score.override}
                       onChange={(e) =>
-                        setCharacter((prev) => ({
+                        setAbilities((prev) => ({
                           ...prev,
-                          abilities: {
-                            ...prev.abilities,
-                            [ability]: {
-                              ...prev.abilities[ability],
-                              override: e.target.value,
-                            },
+                          [ability]: {
+                            ...prev[ability],
+                            override: e.target.value,
                           },
                         }))
                       }
@@ -120,7 +119,6 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({
               </div>
             );
           })}
-          <button onClick={toggleEditable}>Edit</button>
         </div>
       )}
     </div>

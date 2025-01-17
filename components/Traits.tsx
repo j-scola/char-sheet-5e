@@ -9,7 +9,7 @@ interface TraitsProps {
 
 export const Traits = ({ dndClass, species, subSpecies }) => {
   return (
-    <div className="w-1/3 border-blue border-2 p-1 m-1">
+    <div className="box-outline-spacing">
       <h2 className="text-xl">Traits</h2>
       <ul>
         {subSpecies.traits.map((trait, index) => (

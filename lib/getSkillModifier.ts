@@ -1,23 +1,22 @@
-import { DndAbilityScores, Level, SkillProficiency } from '../domain';
-import { getAbilityModifier } from './getAbilityModifiers';
+import { DndAbilityModifiers, Level, SkillProficiency } from '../domain';
 
 export const getSkillModifier = (
-  abilities: DndAbilityScores,
+  abilityModifiers: DndAbilityModifiers,
   proficiency: SkillProficiency,
   level: Level
 ) => {
   return (
-    getAbilityModifier(abilities[proficiency.baseAbility]) +
+    abilityModifiers[proficiency.baseAbility] +
     level.proficiencyBonus * (proficiency.proficiencyLevel + 1)
   );
 };
 
 export const getSkillModifierString = (
-  abilities: DndAbilityScores,
+  abilityModifiers: DndAbilityModifiers,
   proficiency: SkillProficiency,
   level: Level
 ) => {
-  const val = getSkillModifier(abilities, proficiency, level);
+  const val = getSkillModifier(abilityModifiers, proficiency, level);
   if (val >= 0) {
     return `+${val}`;
   } else {

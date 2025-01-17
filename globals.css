@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.box-outline-spacing {
+  @apply w-full border-blue-300 border-2 rounded-md p-2 m-1;
+}

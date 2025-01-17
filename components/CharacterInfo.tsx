@@ -13,7 +13,7 @@ export const CharacterInfo: React.FC<CharacterInfoProps> = ({
   const [editable, setEditable] = useState(false);
 
   return (
-    <div className="w-full border-blue border-2 p-1 m-1">
+    <div className="box-outline-spacing">
       <div className="flex w-full justify-between">
         <h2 className="text-xl ">Character Information</h2>
         <LockEditButton editable={editable} setEditable={setEditable} />

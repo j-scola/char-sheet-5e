@@ -20,7 +20,7 @@ export const SpeciesSelector: React.FC<SpeciesProps> = ({
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="w-full border-blue border-2 px-1 py-2 m-1 ">
+    <div className="box-outline-spacing">
       <div className="flex justify-between">
         <div className="flex items-center">
           <ChevronToggle expanded={expanded} setExpanded={setExpanded} />

@@ -3,26 +3,30 @@ import {
   DndAbilityScores,
   Level,
   ProficiencyLevel,
+  DndAbilityModifiers,
   SkillProficiency,
+  Dice,
 } from '../domain';
-import { getAbilityModifier } from '../lib/getAbilityModifiers';
 import {
   getSkillModifier,
   getSkillModifierString,
 } from '../lib/getSkillModifier';
 import { LockEditButton } from './reusable/LockEditButton';
+import { RollDice } from './reusable/RollDice/RollDice';
 
 type ProficienciesProps = {
   proficiencies: SkillProficiency[];
-  abilities: DndAbilityScores;
+  abilityModifiers: DndAbilityModifiers;
   level: Level;
   setProficiencies: React.Dispatch<React.SetStateAction<SkillProficiency[]>>;
+  sendToChat: (message: string) => void;
 };
 export const Proficiencies = ({
   proficiencies,
-  abilities,
+  abilityModifiers,
   level,
   setProficiencies,
+  sendToChat,
 }: ProficienciesProps) => {
   const [editable, setEditable] = useState(false);
 
@@ -75,12 +79,11 @@ export const Proficiencies = ({
   };
 
   return (
-    <div className="w-1/3 border-blue border-2 p-1 m-1">
+    <div className="box-outline-spacing">
       <div className="flex w-full justify-between">
-        <h2 className="text-xl">Skill Proficiencies</h2>
+        <h2 className="text-xl">Proficiencies</h2>
         <LockEditButton editable={editable} setEditable={setEditable} />
       </div>
-
       <ul>
         {proficiencies.map((proficiency, index) => (
           <li key={index} className="flex items-center my-2">
@@ -88,8 +91,19 @@ export const Proficiencies = ({
             <span className="mr-1">{proficiency.skill}</span>
             <div>
               <span className="mr-1">
-                {getSkillModifierString(abilities, proficiency, level)}
+                {getSkillModifierString(abilityModifiers, proficiency, level)}
               </span>
+              <RollDice
+                sides={Dice.D20}
+                rollingFor={proficiency.skill}
+                modifier={getSkillModifier(
+                  abilityModifiers,
+                  proficiency,
+                  level
+                )}
+                source={`Proficiency - ${proficiency.skill}`}
+                sendToChat={sendToChat}
+              />
             </div>
           </li>
         ))}

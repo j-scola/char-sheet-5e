@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import { AbilityScores } from './AbilityScores';
-import { Weapons } from './Weapons';
 import {
   Character,
   DndAbilityScores,
@@ -10,60 +9,87 @@ import {
   EmptySpecies,
   Species,
   SkillProficiency,
-  Weapon,
   EmptySubSpecies,
   SubSpecies,
   SkillProficiencies,
+  DndSubclass,
+  EmptyDndSubclass,
 } from '../domain';
-import { rollDice } from '../utils/rollDice';
 import { CharacterInfo } from './CharacterInfo';
 import { Traits } from './Traits';
 import { Proficiencies } from './Proficiencies';
-import { DndClass, EmptyDndClass } from '../domain/types/DndClass';
+import { DndClass, EmptyDndClass } from '../domain/types/character/DndClass';
 import { DndClassSelector } from './DndClassSelector';
 import { SpeciesSelector } from './SpeciesSelector';
+import { Inventory } from './Inventory';
+import { SavingThrows } from './SavingThrows';
+import { getCalculatedFields } from '../lib/getCalculatedFields';
 
-const CharacterSheet: React.FC = () => {
+export const CharacterSheet: React.FC<{
+  sendToChat: (message: string) => void;
+}> = ({ sendToChat }) => {
   const [character, setCharacter] = useState<Character>(EmptyCharacter);
   const [abilities, setAbilities] =
     useState<DndAbilityScores>(EmptyAbilityScores);
-
   const [dndClass, setDndClass] = useState<DndClass>(EmptyDndClass);
+  const [dndSubclass, setDndSubclass] = useState<DndSubclass>(EmptyDndSubclass);
   const [species, setSpecies] = useState<Species>(EmptySpecies);
   const [subSpecies, setSubSpecies] = useState<SubSpecies>(EmptySubSpecies);
   const [proficiencies, setProficiencies] =
     useState<SkillProficiency[]>(SkillProficiencies);
 
-  const handleRoll = (modifier: number) => {
-    const roll = rollDice(20) + modifier;
-    alert(`You rolled: ${roll}`);
-  };
+  const { abilityModifiers } = getCalculatedFields(
+    abilities,
+    dndClass,
+    subSpecies,
+    character
+  );
 
   return (
     <div>
-      <CharacterInfo character={character} setCharacter={setCharacter} />
-      <SpeciesSelector
-        species={species}
-        setSpecies={setSpecies}
-        subSpecies={subSpecies}
-        setSubSpecies={setSubSpecies}
-      ></SpeciesSelector>
-      <DndClassSelector dndClass={dndClass} setDndClass={setDndClass} />
-      <AbilityScores
-        abilities={abilities}
-        species={species}
-        setAbilities={setAbilities}
-      />
-      <Weapons />
-      <Proficiencies
-        abilities={abilities}
-        proficiencies={proficiencies}
-        level={character.level}
-        setProficiencies={setProficiencies}
-      />
+      <div className="p-2">
+        <CharacterInfo character={character} setCharacter={setCharacter} />
+        <SpeciesSelector
+          species={species}
+          setSpecies={setSpecies}
+          subSpecies={subSpecies}
+          setSubSpecies={setSubSpecies}
+        ></SpeciesSelector>
+        <DndClassSelector dndClass={dndClass} setDndClass={setDndClass} />
+      </div>
+      <div className="flex">
+        <div className="w-1/3 p-2">
+          <AbilityScores
+            abilities={abilities}
+            species={species}
+            subSpecies={subSpecies}
+            setAbilities={setAbilities}
+          />
+        </div>
+        <div className="w-1/5 p-2">
+          <SavingThrows
+            abilityModifiers={abilityModifiers}
+            dndClass={dndClass}
+            proficiencyBonus={character.level.proficiencyBonus}
+            sendToChat={sendToChat}
+          />
+        </div>
+      </div>
+      <div className="flex">
+        <div className="w-1/3 p-2">
+          <Proficiencies
+            abilityModifiers={abilityModifiers}
+            proficiencies={proficiencies}
+            level={character.level}
+            setProficiencies={setProficiencies}
+            sendToChat={sendToChat}
+          />
+        </div>
+        <div className="w-1/2 p-2">
+          <Inventory inventory={{}}></Inventory>
+        </div>
+      </div>
       <Traits dndClass={dndClass} species={species} subSpecies={subSpecies} />
     </div>
   );
 };
-
-export default CharacterSheet;

@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/j-scola/char-sheet-5e#readme",
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/react": "^18.0.28",
     "next": "^15.1.4",
     "react": "^19.0.0",

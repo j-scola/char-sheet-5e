@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
-import { DndClass, Weapon } from '../domain';
+import { DndClass, DndSubclass } from '../domain';
 import { Classes } from '../domain/5e/Classes';
 import { LockEditButton } from './reusable/LockEditButton';
 import { ChevronToggle } from './reusable/ChevronToggle';
 
-type DndClassProps = {
+export const DndClassSelector: React.FC<{
   dndClass: DndClass;
   setDndClass: React.Dispatch<React.SetStateAction<DndClass>>;
-};
-export const DndClassSelector: React.FC<DndClassProps> = ({
-  dndClass,
-  setDndClass,
-}) => {
+}> = ({ dndClass, setDndClass }) => {
   const [editable, setEditable] = useState(false);
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="w-full border-blue border-2 px-1 py-2 m-1 ">
+    <div className="box-outline-spacing">
       <div className="w-full  flex justify-between">
         <div className="flex items-center">
           <ChevronToggle expanded={expanded} setExpanded={setExpanded} />
@@ -24,7 +20,6 @@ export const DndClassSelector: React.FC<DndClassProps> = ({
         </div>
         <div>
           <label className="mr-2">
-            <span className="ml-3 mr-1">Class:</span>
             {editable ? (
               <select
                 className="outline-black outline outline-1 rounded focus:outline-none focus:ring focus:ring-violet-300"
@@ -52,13 +47,17 @@ export const DndClassSelector: React.FC<DndClassProps> = ({
       </div>
       {expanded ? (
         <div>
-          <div>
-            <span>Description: </span>
-            <span>{dndClass.description}</span>
+          <div className="flex-col">
+            <h3 className="text-lg">Description: </h3>
+            <p>{dndClass.description}</p>
           </div>
-          <div>
-            <span>Hit Dice</span>
+          <div className="flex-col">
+            <h3 className="text-lg">Hit Dice:</h3>
             <span>{`1d${dndClass.hitDice}`}</span>
+          </div>
+          <div className="flex-col">
+            <h3 className="text-lg">Saving Throws:</h3>
+            <span>{dndClass.savingThrowProficiencies.join(', ')}</span>
           </div>
         </div>
       ) : (

@@ -1,4 +1,4 @@
-import { Species } from '../types/Species';
+import { Species } from '../types/character/Species';
 
 export const SpeciesOfFaerun: Species[] = [
   {

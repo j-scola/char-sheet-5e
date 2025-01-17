@@ -1,5 +1,5 @@
 import { Dice } from '../types/Dice';
-import { DndClass } from '../types/DndClass';
+import { DndClass } from '../types/character/DndClass';
 import { Abilities } from './Abilities';
 
 export const Classes: DndClass[] = [

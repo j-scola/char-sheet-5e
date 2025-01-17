@@ -1,5 +1,5 @@
-import { Abilities } from '../5e/Abilities';
-import { Dice } from './Dice';
+import { Abilities } from '../../5e/Abilities';
+import { Dice } from '../Dice';
 
 export interface DndSubclass {
   name: string;
@@ -51,4 +51,11 @@ export const EmptyDndClass: DndClass = {
   startingEquipment: [],
   features: [],
   subclasses: [],
+};
+
+export const EmptyDndSubclass: DndSubclass = {
+  name: '',
+  description: '',
+  levelRequirements: 0,
+  features: [],
 };

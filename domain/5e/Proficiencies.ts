@@ -1,5 +1,5 @@
+import { SkillProficiency } from '../types';
 import { Abilities } from './Abilities';
-import { SkillProficiency } from '../types/SkillProficiency';
 
 export const SkillProficiencies: SkillProficiency[] = [
   {

@@ -9,7 +9,7 @@ export const Weapons: React.FC<PropTypes> = ({}) => {
   const [weapons, setWeapons] = useState<Weapon[]>([]);
 
   return (
-    <div className="w-1/3 border-blue border-2 p-1 m-1">
+    <div className="box-outline-spacing">
       <div className="flex w-full justify-between">
         <h2 className="text-xl">Weapons</h2>
         <LockEditButton editable={editable} setEditable={setEditable} />

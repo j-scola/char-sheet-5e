@@ -1,4 +1,4 @@
-import { Abilities } from '../5e/Abilities';
+import { Abilities } from '../../5e';
 
 export type ProficiencyLevel = 0 | 1 | 2 | 3;
 

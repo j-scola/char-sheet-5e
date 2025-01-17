@@ -1,4 +1,4 @@
-import { Levels } from '../5e/Levels';
+import { Levels } from '../../5e';
 
 export interface Level {
   level: number;

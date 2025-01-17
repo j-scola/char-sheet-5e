@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DndClass, DndSubclass } from '../domain';
-import { Classes } from '../domain/5e/Classes';
+import { Classes } from '../domain/compendium/Classes';
 import { LockEditButton } from './reusable/LockEditButton';
 import { ChevronToggle } from './reusable/ChevronToggle';
 

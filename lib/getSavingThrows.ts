@@ -1,4 +1,4 @@
-import { Abilities, Character, DndAbilityModifiers, DndClass } from '../domain';
+import { Ability, Character, DndAbilityModifiers, DndClass } from '../domain';
 
 export const getSavingThrows = (
   abilityModifiers: DndAbilityModifiers,
@@ -14,7 +14,7 @@ export const getSavingThrows = (
     charisma: 0,
   };
 
-  Object.entries(Abilities).forEach(([abilityName, ability]) => {
+  Object.entries(Ability).forEach(([abilityName, ability]) => {
     result[ability] =
       abilityModifiers[ability] +
       (dndClass.savingThrowProficiencies.includes(ability)

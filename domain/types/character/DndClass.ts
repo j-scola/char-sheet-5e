@@ -1,4 +1,4 @@
-import { Abilities } from '../../5e/Abilities';
+import { Ability } from '../../compendium/Ability';
 import { Dice } from '../Dice';
 
 export interface DndSubclass {
@@ -18,8 +18,8 @@ export interface DndClass {
   name: string;
   description: string;
   hitDice: Dice;
-  primaryAbility: Abilities;
-  savingThrowProficiencies: Abilities[];
+  primaryAbility: Ability;
+  savingThrowProficiencies: Ability[];
   armorProficiencies: string[];
   weaponProficiencies: string[];
   toolProficiencies?: string[];
@@ -43,7 +43,7 @@ export const EmptyDndClass: DndClass = {
   name: '',
   description: '',
   hitDice: Dice.D10,
-  primaryAbility: Abilities.Strength,
+  primaryAbility: Ability.Strength,
   savingThrowProficiencies: [],
   armorProficiencies: [],
   weaponProficiencies: [],

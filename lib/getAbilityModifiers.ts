@@ -1,5 +1,5 @@
 import {
-  Abilities,
+  Ability,
   DndAbilityModifiers,
   DndAbilityScore,
   DndAbilityScores,
@@ -8,7 +8,7 @@ import {
 
 const getSubspeciesAbilityAdjustment = (
   subSpecies: SubSpecies,
-  ability: Abilities
+  ability: Ability
 ) => {
   return subSpecies.abilityModifiers[ability] || 0;
 };
@@ -30,27 +30,27 @@ export const getAbilityModifiers = (
   return {
     strength: getAbilityModifier(
       abilities.strength,
-      getSubspeciesAbilityAdjustment(subSpecies, Abilities.Strength)
+      getSubspeciesAbilityAdjustment(subSpecies, Ability.Strength)
     ),
     dexterity: getAbilityModifier(
       abilities.dexterity,
-      getSubspeciesAbilityAdjustment(subSpecies, Abilities.Dexterity)
+      getSubspeciesAbilityAdjustment(subSpecies, Ability.Dexterity)
     ),
     constitution: getAbilityModifier(
       abilities.constitution,
-      getSubspeciesAbilityAdjustment(subSpecies, Abilities.Constitution)
+      getSubspeciesAbilityAdjustment(subSpecies, Ability.Constitution)
     ),
     intelligence: getAbilityModifier(
       abilities.intelligence,
-      getSubspeciesAbilityAdjustment(subSpecies, Abilities.Intelligence)
+      getSubspeciesAbilityAdjustment(subSpecies, Ability.Intelligence)
     ),
     wisdom: getAbilityModifier(
       abilities.wisdom,
-      getSubspeciesAbilityAdjustment(subSpecies, Abilities.Wisdom)
+      getSubspeciesAbilityAdjustment(subSpecies, Ability.Wisdom)
     ),
     charisma: getAbilityModifier(
       abilities.charisma,
-      getSubspeciesAbilityAdjustment(subSpecies, Abilities.Charisma)
+      getSubspeciesAbilityAdjustment(subSpecies, Ability.Charisma)
     ),
   };
 };

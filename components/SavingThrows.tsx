@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Abilities,
+  Ability,
   DndAbilityScores,
   DndClass,
   DndAbilityModifiers,
@@ -19,32 +19,32 @@ export const SavingThrows: React.FC<{
   const savingThrows = {
     strength:
       abilityModifiers.strength +
-      (dndClass.savingThrowProficiencies.includes(Abilities.Strength)
+      (dndClass.savingThrowProficiencies.includes(Ability.Strength)
         ? proficiencyBonus
         : 0),
     dexterity:
       abilityModifiers.dexterity +
-      (dndClass.savingThrowProficiencies.includes(Abilities.Dexterity)
+      (dndClass.savingThrowProficiencies.includes(Ability.Dexterity)
         ? proficiencyBonus
         : 0),
     constitution:
       abilityModifiers.constitution +
-      (dndClass.savingThrowProficiencies.includes(Abilities.Constitution)
+      (dndClass.savingThrowProficiencies.includes(Ability.Constitution)
         ? proficiencyBonus
         : 0),
     intelligence:
       abilityModifiers.intelligence +
-      (dndClass.savingThrowProficiencies.includes(Abilities.Intelligence)
+      (dndClass.savingThrowProficiencies.includes(Ability.Intelligence)
         ? proficiencyBonus
         : 0),
     wisdom:
       abilityModifiers.wisdom +
-      (dndClass.savingThrowProficiencies.includes(Abilities.Wisdom)
+      (dndClass.savingThrowProficiencies.includes(Ability.Wisdom)
         ? proficiencyBonus
         : 0),
     charisma:
       abilityModifiers.charisma +
-      (dndClass.savingThrowProficiencies.includes(Abilities.Charisma)
+      (dndClass.savingThrowProficiencies.includes(Ability.Charisma)
         ? proficiencyBonus
         : 0),
   };

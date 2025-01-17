@@ -1,6 +1,6 @@
 import { Dice } from '../types/Dice';
 import { DndClass } from '../types/character/DndClass';
-import { Abilities } from './Abilities';
+import { Ability } from './Ability';
 
 export const Classes: DndClass[] = [
   {
@@ -8,8 +8,8 @@ export const Classes: DndClass[] = [
     description:
       'A fierce warrior of primitive background who can enter a battle rage',
     hitDice: Dice.D12,
-    primaryAbility: Abilities.Strength,
-    savingThrowProficiencies: [Abilities.Strength, Abilities.Constitution],
+    primaryAbility: Ability.Strength,
+    savingThrowProficiencies: [Ability.Strength, Ability.Constitution],
     armorProficiencies: ['light', 'medium', 'shield'],
     weaponProficiencies: ['simple', 'martial'],
     toolProficiencies: [],
@@ -93,8 +93,8 @@ export const Classes: DndClass[] = [
     description:
       'An inspiring magician whose power echoes the music of creation',
     hitDice: Dice.D8,
-    primaryAbility: Abilities.Charisma,
-    savingThrowProficiencies: [Abilities.Dexterity, Abilities.Charisma],
+    primaryAbility: Ability.Charisma,
+    savingThrowProficiencies: [Ability.Dexterity, Ability.Charisma],
     armorProficiencies: ['light'],
     weaponProficiencies: [
       'simple',
@@ -183,8 +183,8 @@ export const Classes: DndClass[] = [
     description:
       'A holy warrior bound to a sacred oath who uses divine magic and martial prowess to protect the innocent and smite the wicked',
     hitDice: Dice.D10,
-    primaryAbility: Abilities.Strength,
-    savingThrowProficiencies: [Abilities.Wisdom, Abilities.Charisma],
+    primaryAbility: Ability.Strength,
+    savingThrowProficiencies: [Ability.Wisdom, Ability.Charisma],
     armorProficiencies: ['light', 'medium', 'heavy', 'shield'],
     weaponProficiencies: ['simple', 'martial'],
     toolProficiencies: [],
@@ -256,8 +256,8 @@ export const Classes: DndClass[] = [
     description:
       'A servant of the divine, drawing power from a god or deity to perform miracles and help others',
     hitDice: Dice.D8,
-    primaryAbility: Abilities.Wisdom,
-    savingThrowProficiencies: [Abilities.Wisdom, Abilities.Charisma],
+    primaryAbility: Ability.Wisdom,
+    savingThrowProficiencies: [Ability.Wisdom, Ability.Charisma],
     armorProficiencies: ['light', 'medium', 'shield'],
     weaponProficiencies: ['simple'],
     toolProficiencies: [],
@@ -317,8 +317,8 @@ export const Classes: DndClass[] = [
     description:
       'A nimble and stealthy character, skilled in trickery, thievery, and sneaky combat tactics',
     hitDice: Dice.D8,
-    primaryAbility: Abilities.Dexterity,
-    savingThrowProficiencies: [Abilities.Dexterity, Abilities.Intelligence],
+    primaryAbility: Ability.Dexterity,
+    savingThrowProficiencies: [Ability.Dexterity, Ability.Intelligence],
     armorProficiencies: ['light'],
     weaponProficiencies: ['simple', 'martial'],
     toolProficiencies: ['thieves tools'],
@@ -385,8 +385,8 @@ export const Classes: DndClass[] = [
     description:
       'A martial artist who channels inner energy to fight with unarmed strikes and focus on physical and spiritual discipline',
     hitDice: Dice.D8,
-    primaryAbility: Abilities.Dexterity,
-    savingThrowProficiencies: [Abilities.Strength, Abilities.Dexterity],
+    primaryAbility: Ability.Dexterity,
+    savingThrowProficiencies: [Ability.Strength, Ability.Dexterity],
     armorProficiencies: [],
     weaponProficiencies: ['simple', 'martial'],
     toolProficiencies: [],
@@ -446,8 +446,8 @@ export const Classes: DndClass[] = [
     description:
       'A skilled warrior who can take on any form of combat, from wielding heavy weapons to tactical maneuvers on the battlefield',
     hitDice: Dice.D10,
-    primaryAbility: Abilities.Strength,
-    savingThrowProficiencies: [Abilities.Strength, Abilities.Constitution],
+    primaryAbility: Ability.Strength,
+    savingThrowProficiencies: [Ability.Strength, Ability.Constitution],
     armorProficiencies: ['light', 'medium', 'heavy', 'shield'],
     weaponProficiencies: ['simple', 'martial'],
     toolProficiencies: [],
@@ -514,8 +514,8 @@ export const Classes: DndClass[] = [
     description:
       'A guardian of nature, able to transform into animals and wield powerful nature-based magic',
     hitDice: Dice.D8,
-    primaryAbility: Abilities.Wisdom,
-    savingThrowProficiencies: [Abilities.Intelligence, Abilities.Wisdom],
+    primaryAbility: Ability.Wisdom,
+    savingThrowProficiencies: [Ability.Intelligence, Ability.Wisdom],
     armorProficiencies: ['light', 'medium', 'shield'],
     weaponProficiencies: [
       'club',
@@ -587,8 +587,8 @@ export const Classes: DndClass[] = [
     description:
       'A skilled tracker and hunter who specializes in ranged combat and survival in the wilds',
     hitDice: Dice.D10,
-    primaryAbility: Abilities.Dexterity,
-    savingThrowProficiencies: [Abilities.Strength, Abilities.Dexterity],
+    primaryAbility: Ability.Dexterity,
+    savingThrowProficiencies: [Ability.Strength, Ability.Dexterity],
     armorProficiencies: ['light', 'medium'],
     weaponProficiencies: ['simple', 'martial'],
     toolProficiencies: ['herbalism kit'],
@@ -656,8 +656,8 @@ export const Classes: DndClass[] = [
     description:
       'A spellcaster who wields innate magic, either through bloodline, heritage, or force of will',
     hitDice: Dice.D6,
-    primaryAbility: Abilities.Charisma,
-    savingThrowProficiencies: [Abilities.Constitution, Abilities.Charisma],
+    primaryAbility: Ability.Charisma,
+    savingThrowProficiencies: [Ability.Constitution, Ability.Charisma],
     armorProficiencies: [],
     weaponProficiencies: ['simple'],
     toolProficiencies: [],
@@ -716,8 +716,8 @@ export const Classes: DndClass[] = [
     description:
       'A spellcaster who has made a pact with a powerful otherworldly entity for magical powers in exchange for service or power',
     hitDice: Dice.D8,
-    primaryAbility: Abilities.Charisma,
-    savingThrowProficiencies: [Abilities.Wisdom, Abilities.Charisma],
+    primaryAbility: Ability.Charisma,
+    savingThrowProficiencies: [Ability.Wisdom, Ability.Charisma],
     armorProficiencies: ['light'],
     weaponProficiencies: ['simple'],
     toolProficiencies: [],
@@ -783,8 +783,8 @@ export const Classes: DndClass[] = [
     description:
       'A spellcaster who relies on knowledge and intellect to wield arcane magic, specializing in a wide array of spells',
     hitDice: Dice.D6,
-    primaryAbility: Abilities.Intelligence,
-    savingThrowProficiencies: [Abilities.Intelligence, Abilities.Wisdom],
+    primaryAbility: Ability.Intelligence,
+    savingThrowProficiencies: [Ability.Intelligence, Ability.Wisdom],
     armorProficiencies: [],
     weaponProficiencies: ['dagger', 'dart', 'sling', 'quarterstaff'],
     toolProficiencies: [],
@@ -845,8 +845,8 @@ export const Classes: DndClass[] = [
     description:
       'A master of magic-infused technology, capable of crafting magical items and using spells to enhance their creations',
     hitDice: Dice.D8,
-    primaryAbility: Abilities.Intelligence,
-    savingThrowProficiencies: [Abilities.Constitution, Abilities.Intelligence],
+    primaryAbility: Ability.Intelligence,
+    savingThrowProficiencies: [Ability.Constitution, Ability.Intelligence],
     armorProficiencies: ['light', 'medium'],
     weaponProficiencies: ['simple', 'martial'],
     toolProficiencies: [
@@ -909,8 +909,8 @@ export const Classes: DndClass[] = [
     description:
       'A dark and mysterious class that blends martial prowess and infernal power, often serving fiendish patrons and wielding both sword and magic',
     hitDice: Dice.D10,
-    primaryAbility: Abilities.Strength,
-    savingThrowProficiencies: [Abilities.Strength, Abilities.Charisma],
+    primaryAbility: Ability.Strength,
+    savingThrowProficiencies: [Ability.Strength, Ability.Charisma],
     armorProficiencies: ['light', 'medium', 'heavy', 'shield'],
     weaponProficiencies: ['simple', 'martial'],
     toolProficiencies: [],
@@ -964,8 +964,8 @@ export const Classes: DndClass[] = [
     description:
       'A grim warrior who uses their own blood to fuel dark rituals and unlock destructive powers, hunting monsters with fierce tenacity',
     hitDice: Dice.D10,
-    primaryAbility: Abilities.Strength,
-    savingThrowProficiencies: [Abilities.Strength, Abilities.Dexterity],
+    primaryAbility: Ability.Strength,
+    savingThrowProficiencies: [Ability.Strength, Ability.Dexterity],
     armorProficiencies: ['light', 'medium'],
     weaponProficiencies: ['simple', 'martial'],
     toolProficiencies: [],

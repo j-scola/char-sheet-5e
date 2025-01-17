@@ -1,2 +1,2 @@
-export * from './5e';
+export * from './compendium';
 export * from './types';

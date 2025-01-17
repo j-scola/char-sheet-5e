@@ -14,6 +14,8 @@ import {
   SkillProficiencies,
   DndSubclass,
   EmptyDndSubclass,
+  ItemInventory,
+  EmptyInventory,
 } from '../domain';
 import { CharacterInfo } from './CharacterInfo';
 import { Traits } from './Traits';
@@ -24,6 +26,7 @@ import { SpeciesSelector } from './SpeciesSelector';
 import { Inventory } from './Inventory';
 import { SavingThrows } from './SavingThrows';
 import { getCalculatedFields } from '../lib/getCalculatedFields';
+import { ArmorClass } from './ArmorClass';
 
 export const CharacterSheet: React.FC<{
   sendToChat: (message: string) => void;
@@ -37,6 +40,8 @@ export const CharacterSheet: React.FC<{
   const [subSpecies, setSubSpecies] = useState<SubSpecies>(EmptySubSpecies);
   const [proficiencies, setProficiencies] =
     useState<SkillProficiency[]>(SkillProficiencies);
+
+  const [inventory, setInventory] = useState<ItemInventory>(EmptyInventory);
 
   const { abilityModifiers } = getCalculatedFields(
     abilities,
@@ -72,6 +77,13 @@ export const CharacterSheet: React.FC<{
             dndClass={dndClass}
             proficiencyBonus={character.level.proficiencyBonus}
             sendToChat={sendToChat}
+          />
+        </div>
+        <div className="w-1/5 p-2">
+          <ArmorClass
+            abilityModifiers={abilityModifiers}
+            armor={inventory.equipped.armor}
+            shield={inventory.equipped.shield}
           />
         </div>
       </div>

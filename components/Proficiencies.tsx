@@ -86,25 +86,24 @@ export const Proficiencies = ({
       </div>
       <ul>
         {proficiencies.map((proficiency, index) => (
-          <li key={index} className="flex items-center my-2">
-            {renderProficiencyLevel(proficiency)}
-            <span className="mr-1">{proficiency.skill}</span>
-            <div>
+          <li
+            key={index}
+            className="flex items-center my-3 pr-2 justify-between"
+          >
+            <div className="flex items-center">
+              {renderProficiencyLevel(proficiency)}
+              <span className="mr-1">{proficiency.skill}</span>
               <span className="mr-1">
                 {getSkillModifierString(abilityModifiers, proficiency, level)}
               </span>
-              <RollDice
-                sides={Dice.D20}
-                rollingFor={proficiency.skill}
-                modifier={getSkillModifier(
-                  abilityModifiers,
-                  proficiency,
-                  level
-                )}
-                source={`Proficiency - ${proficiency.skill}`}
-                sendToChat={sendToChat}
-              />
             </div>
+            <RollDice
+              sides={Dice.D20}
+              rollingFor={proficiency.skill}
+              modifier={getSkillModifier(abilityModifiers, proficiency, level)}
+              source={`Proficiency - ${proficiency.skill}`}
+              sendToChat={sendToChat}
+            />
           </li>
         ))}
       </ul>
